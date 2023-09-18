@@ -9,25 +9,28 @@ const config: Config = {
   theme: {
     screens: {
       '2xl': { max: '1535px' },
-
       xl: { max: '1279px' },
-
       lg: { max: '1023px' },
-
       md: { max: '767px' },
-
       sm: { max: '639px' },
     },
     extend: {
+      gridTemplateColumns: {
+        sm: '1fr',
+        basic: '1fr auto',
+      },
       maxWidth: {
         container: 'calc(100vw - (100vw - 1160px)/2)',
         hero: '480px',
       },
       fontSize: {
         xxs: '0.625rem',
+        'almost-base': '0.75rem',
+        '6.5xl': '4rem',
       },
       lineHeight: {
         xxs: '10px',
+        '6.5xl': '76px',
       },
       backgroundColor: {
         white: '#FFF',
@@ -68,4 +71,5 @@ const config: Config = {
   },
   plugins: [],
 }
+
 export default config
