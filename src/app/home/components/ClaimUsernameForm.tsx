@@ -7,18 +7,22 @@ import { ArrowRight } from 'phosphor-react'
 
 export const ClaimUsernameForm = () => {
   return (
-    <form>
-      <Box>
-        <TextInput prefix="ignite.com/" placeholder="seu-usuario" />
-        <Button
-          size="sm"
-          type="submit"
-          className="flex items-center gap-2 rounded-md"
-        >
-          Reservar usuário
-          <ArrowRight />
-        </Button>
-      </Box>
-    </form>
+    <Box
+      as="form"
+      className="mt-4 flex items-center justify-center gap-2 border-none bg-gray800 sm:flex-col"
+    >
+      <TextInput
+        prefix="ignite.com/"
+        placeholder="seu-usuario"
+        boxStyle="sm:w-full "
+      />
+      <Button
+        type="submit"
+        className="flex items-center gap-2 rounded-md text-sm sm:w-full sm:justify-center"
+      >
+        Reservar
+        <ArrowRight />
+      </Button>
+    </Box>
   )
 }

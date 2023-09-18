@@ -8,10 +8,12 @@ import previewImage from '../../assets/app-preview.png'
 
 const Home = () => {
   return (
-    <div className="ml-auto flex h-screen max-w-container flex-row items-center gap-20 ">
-      <div className="max-w-hero px-10 py-0">
-        <Heading size="4xl">Agendamento descomplicado</Heading>
-        <Text size="xl" className={'mt-2 text-xl text-gray200'}>
+    <div className="ml-auto flex h-screen max-w-container flex-row items-center gap-24 ">
+      <div className="max-w-hero px-6 py-0">
+        <Heading className="text-6.5xl leading-6.5xl sm:text-5xl">
+          Agendamento descomplicado
+        </Heading>
+        <Text size="xl" className={'mt-2 text-xl text-gray200 sm:text-base'}>
           Conecte seu calendário e permita que as pessoas marquem agendamentos
           no seu tempo livre.
         </Text>
