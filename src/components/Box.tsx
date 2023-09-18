@@ -1,14 +1,20 @@
-import React, { ReactNode } from 'react'
+import React, { ElementType, ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 interface BoxProps {
+  as?: ElementType
   children: ReactNode
   className?: string
 }
 
-const Box = ({ children, className, ...rest }: BoxProps) => {
+const Box = ({
+  as: Component = 'div',
+  children,
+  className,
+  ...rest
+}: BoxProps) => {
   return (
-    <div
+    <Component
       className={twMerge(
         'rounded-md border border-gray-600 bg-gray-800 p-6',
         className,
@@ -16,7 +22,7 @@ const Box = ({ children, className, ...rest }: BoxProps) => {
       {...rest}
     >
       {children}
-    </div>
+    </Component>
   )
 }
 

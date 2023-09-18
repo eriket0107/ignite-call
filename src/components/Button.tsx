@@ -31,7 +31,7 @@ const Button = ({
   return (
     <Component
       className={twMerge(
-        `all:unset rounded-sm px-4 text-sm font-medium ${variants[variant]} ${sizes[size]}`,
+        `all:unset rounded-sm px-4 font-medium ${variants[variant]} ${sizes[size]}`,
         className,
       )}
       {...rest}
