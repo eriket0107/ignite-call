@@ -1,4 +1,5 @@
-import React, { ElementType, ReactNode } from 'react'
+'use client'
+import React, { ComponentProps, ElementType, ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 interface BoxProps {
@@ -7,7 +8,7 @@ interface BoxProps {
   className?: string
 }
 
-const Box = ({
+const Container = ({
   as: Component = 'div',
   children,
   className,
@@ -24,6 +25,27 @@ const Box = ({
       {children}
     </Component>
   )
+}
+
+interface BoxFormProps extends ComponentProps<'form'> {
+  className?: string
+}
+
+const Form = ({ className, ...rest }: BoxFormProps) => {
+  return (
+    <form
+      className={twMerge(
+        'rounded-md border border-gray-600 bg-gray-800 p-6',
+        className,
+      )}
+      {...rest}
+    />
+  )
+}
+
+const Box = {
+  Container,
+  Form,
 }
 
 export default Box

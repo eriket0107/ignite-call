@@ -6,7 +6,9 @@ import { ClaimUsernameForm } from './components/ClaimUsernameForm'
 
 import previewImage from '../../assets/app-preview.png'
 
-const Home = () => {
+export function Home() {
+  console.log('teste')
+
   return (
     <div className="ml-auto flex h-screen max-w-container flex-row items-center gap-24 ">
       <div className="max-w-hero px-6 py-0">
