@@ -1,5 +1,4 @@
 import Image from 'next/image'
-
 import Text from '@/components/Text'
 import Heading from '@/components/Heading'
 import { ClaimUsernameForm } from './components/ClaimUsernameForm'
@@ -7,10 +6,8 @@ import { ClaimUsernameForm } from './components/ClaimUsernameForm'
 import previewImage from '../../assets/app-preview.png'
 
 export function Home() {
-  console.log('teste')
-
   return (
-    <div className="ml-auto flex h-screen max-w-container flex-row items-center gap-24 ">
+    <div className="ml-auto flex h-screen max-w-container flex-row items-center gap-24">
       <div className="max-w-hero px-6 py-0">
         <Heading className="text-6.5xl leading-6.5xl sm:text-5xl">
           Agendamento descomplicado

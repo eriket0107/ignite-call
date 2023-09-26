@@ -1,4 +1,3 @@
-'use client'
 import React, { ComponentProps, ElementType, ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
@@ -17,7 +16,7 @@ const Container = ({
   return (
     <Component
       className={twMerge(
-        'rounded-md border border-gray-600 bg-gray-800 p-6',
+        'rounded-md border border-gray-600 bg-gray800 p-6',
         className,
       )}
       {...rest}
@@ -35,7 +34,7 @@ const Form = ({ className, ...rest }: BoxFormProps) => {
   return (
     <form
       className={twMerge(
-        'rounded-md border border-gray-600 bg-gray-800 p-6',
+        'rounded-md border border-gray-600 bg-gray800 p-6',
         className,
       )}
       {...rest}

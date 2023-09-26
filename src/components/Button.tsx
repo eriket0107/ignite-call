@@ -1,12 +1,12 @@
 'use client'
-import { ElementType, ButtonHTMLAttributes } from 'react'
+import { ButtonHTMLAttributes } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  as?: ElementType
   variant?: 'primary' | 'secondary' | 'tertiary'
   size?: 'sm' | 'md'
-  className: string
+  className?: string
+  iconStyle?: string
 }
 
 const Button = ({ children, className, ...rest }: ButtonProps) => {

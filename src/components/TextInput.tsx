@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import { ComponentProps, ReactNode } from 'react'
+import { ComponentProps, ForwardedRef, ReactNode, forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 export interface ContainerProps {
@@ -10,7 +10,7 @@ export interface ContainerProps {
 const Container = ({ children, classname }: ContainerProps) => (
   <div
     className={twMerge(
-      'flex items-center rounded-sm border-4 border-gray-900 bg-gray900',
+      'focus-within:border-ignite600 group flex items-center rounded-sm border-2 border-gray900 bg-gray900 focus-within:border-2',
       classname,
     )}
   >
@@ -22,17 +22,23 @@ interface InputProps extends ComponentProps<'input'> {
   classname?: string
 }
 
-const Input = ({ classname, ...props }: InputProps) => {
-  return (
-    <input
-      className={twMerge(
-        'font-default font-regular w-full border-0 bg-transparent text-sm text-white focus:outline-none',
-        classname,
-      )}
-      {...props}
-    />
-  )
-}
+const Input = forwardRef(
+  (
+    { classname, ...props }: InputProps,
+    ref: ForwardedRef<HTMLInputElement>,
+  ) => {
+    return (
+      <input
+        ref={ref}
+        className={twMerge(
+          'font-default font-regular w-full border-0 bg-transparent text-sm text-white focus:outline-none',
+          classname,
+        )}
+        {...props}
+      />
+    )
+  },
+)
 
 export interface PrefixProps {
   children: ReactNode

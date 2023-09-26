@@ -19,10 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={'min-h-screen bg-gray900 text-gray100 antialiased'}>
-        <div id="main-app" className={roboto.className}>
+      <body className={roboto.className}>
+        <main
+          id="main-app"
+          className={'min-h-screen bg-gray900 text-gray100 antialiased'}
+        >
           {children}
-        </div>
+        </main>
       </body>
     </html>
   )
