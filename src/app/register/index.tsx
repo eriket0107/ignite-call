@@ -1,4 +1,7 @@
 'use client'
+import { useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
+
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -11,6 +14,8 @@ import TextInput from '@/components/TextInput'
 import { MultiStep } from '@/components/Multistep'
 
 import { ArrowRight } from 'phosphor-react'
+import { api } from '@/lib/axios'
+import { AxiosError } from 'axios'
 
 const registerFormSchema = z.object({
   username: z
@@ -24,13 +29,33 @@ const registerFormSchema = z.object({
 type RegisterFormData = z.infer<typeof registerFormSchema>
 
 const Register = () => {
-  const { register, handleSubmit, formState } = useForm<RegisterFormData>({
-    resolver: zodResolver(registerFormSchema),
-  })
+  const searchParams = useSearchParams()
+  const search = searchParams.get('username')
+  const { register, handleSubmit, formState, setValue } =
+    useForm<RegisterFormData>({
+      resolver: zodResolver(registerFormSchema),
+    })
   const { isSubmitting, errors } = formState
 
+  useEffect(() => {
+    if (search) {
+      setValue('username', search)
+    }
+  }, [search, setValue])
+
   const handleRegister = async (data: RegisterFormData) => {
-    console.log(data)
+    try {
+      await api.post('/users', {
+        name: data.name,
+        username: data.username,
+      })
+    } catch (err) {
+      if (err instanceof AxiosError && err?.response?.data?.message) {
+        alert(err?.response?.data?.message)
+        return
+      }
+      console.log(err)
+    }
   }
 
   return (
